@@ -10,9 +10,22 @@ namespace FrameWorkDesign.Example
     {
         private void Awake()
         {
+            //开始事件
             GameStartEvent.Register(OnGameStart);
+            //击杀事件
+            KillOneEnemyEvent.Register(OnGamePass);
         }
 
+        private void OnGamePass()
+        {
+            //添加击杀数
+            GameModel.KilledCount++;
+            //判断是否达成结束条件
+            if (GameModel.KilledCount == 10)
+            {
+                GamePassEvent.Trigger();
+            }
+        }
 
         private void OnGameStart()
         {
@@ -22,6 +35,7 @@ namespace FrameWorkDesign.Example
         private void OnDestroy()
         {
             GameStartEvent.UnRegister(OnGameStart);
+            KillOneEnemyEvent.UnRegister(OnGamePass);
 
         }
     }

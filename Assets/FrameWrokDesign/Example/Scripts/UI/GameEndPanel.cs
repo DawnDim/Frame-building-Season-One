@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 namespace FrameWorkDesign.Example
 {
-
+    /// <summary>
+    /// Ω· ¯√Ê∞Â
+    /// </summary>
     public class GameEndPanel : MonoBehaviour
     {
 
